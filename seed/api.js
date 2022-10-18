@@ -2,7 +2,7 @@ import axios from 'axios';
 import fs from 'fs';
 
 //Player endpoint
-const playerURL = 'https://www.balldontlie.io/api/v1/players';
+const playerURL = 'https://www.balldontlie.io/api/v1/players?per_page=100';
 
 //Team endpoint
 const teamURL = 'https://www.balldontlie.io/api/v1/teams';
@@ -32,17 +32,17 @@ async function fetchPlayer() {
 
 fetchPlayer();
 
-async function fetchTeam() {
-  let response = await axios.get(teamURL);
-  console.log(response.data)
-  const data = response.data;
-  const teamData = JSON.stringify(data);
-  fs.writeFile('teamdata.json', teamData, err => {
-    if (err) {
-      throw err
-    }
-    console.log('Team data is saved');
-  });
-};
+// async function fetchTeam() {
+//   let response = await axios.get(teamURL);
+//   console.log(response.data)
+//   const data = response.data;
+//   const teamData = JSON.stringify(data);
+//   fs.writeFile('teamdata.json', teamData, err => {
+//     if (err) {
+//       throw err
+//     }
+//     console.log('Team data is saved');
+//   });
+// };
 
-fetchTeam();
+// fetchTeam();
