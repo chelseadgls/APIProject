@@ -6,9 +6,6 @@ const playerSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   position: String,
-  height_feet: Number,
-  height_inches: Number,
-  weight_pounds: Number,
   team: Object,
 })
 

@@ -8,15 +8,12 @@ import Team from '../models/Team.js'
 // console.log(teamData);
   
 let structuredPlayerData = playerData.map(
-  ({ id, first_name, last_name, position, height_feet, height_inches, weight_pounds, team }) => {
+  ({ id, first_name, last_name, position, team }) => {
     return {
       id,
       first_name,
       last_name,
       position,
-      height_feet,
-      height_inches,
-      weight_pounds,
       team
     };
   }
