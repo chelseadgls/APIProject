@@ -7,6 +7,15 @@ const playerURL = 'https://www.balldontlie.io/api/v1/players';
 //Team endpoint
 const teamURL = 'https://www.balldontlie.io/api/v1/teams';
 
+//Game endpoint
+const gameURL = 'https://www.balldontlie.io/api/v1/games'
+
+//Stat endpoint
+const statURL = 'https://www.balldontlie.io/api/v1/stats'
+
+//Average endpoint
+const averageURL = 'https://www.balldontlie.io/api/v1/season_averages'
+
 // API Call
 async function fetchPlayer() {
   let response = await axios.get(playerURL);
