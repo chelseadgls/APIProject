@@ -13,10 +13,7 @@ const gameURL = 'https://www.balldontlie.io/api/v1/games'
 //Stat endpoint
 const statURL = 'https://www.balldontlie.io/api/v1/stats'
 
-//Average endpoint
-const averageURL = 'https://www.balldontlie.io/api/v1/season_averages'
-
-// API Call
+// Player
 async function fetchPlayer() {
   let response = await axios.get(playerURL);
   console.log(response.data)
@@ -32,17 +29,50 @@ async function fetchPlayer() {
 
 fetchPlayer();
 
-// async function fetchTeam() {
-//   let response = await axios.get(teamURL);
-//   console.log(response.data)
-//   const data = response.data;
-//   const teamData = JSON.stringify(data);
-//   fs.writeFile('teamdata.json', teamData, err => {
-//     if (err) {
-//       throw err
-//     }
-//     console.log('Team data is saved');
-//   });
-// };
+// Team
+async function fetchTeam() {
+  let response = await axios.get(teamURL);
+  console.log(response.data)
+  const data = response.data;
+  const teamData = JSON.stringify(data);
+  fs.writeFile('teamdata.json', teamData, err => {
+    if (err) {
+      throw err
+    }
+    console.log('Team data is saved');
+  });
+};
 
-// fetchTeam();
+fetchTeam();
+
+// Game
+async function fetchGame() {
+  let response = await axios.get(gameURL);
+  console.log(response.data)
+  const data = response.data;
+  const gameData = JSON.stringify(data);
+  fs.writeFile('gamedata.json', gameData, err => {
+    if (err) {
+      throw err
+    }
+    console.log('Game data is saved');
+  });
+};
+
+fetchGame();
+
+// Stat
+async function fetchStat() {
+  let response = await axios.get(statURL);
+  console.log(response.data)
+  const data = response.data;
+  const statData = JSON.stringify(data);
+  fs.writeFile('statdata.json', statData, err => {
+    if (err) {
+      throw err
+    }
+    console.log('Stat data is saved');
+  });
+};
+
+fetchStat();
