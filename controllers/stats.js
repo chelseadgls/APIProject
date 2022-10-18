@@ -26,7 +26,7 @@ export const getStat = async (req, res) => {
   }
 };
 
-export const createState = async (req, res) => {
+export const createStat = async (req, res) => {
   try {
     const stat = new Stat(req.body);
     await stat.save();
