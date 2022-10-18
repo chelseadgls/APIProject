@@ -7,9 +7,6 @@ import Player from '../models/Player.js'
 import Team from '../models/Team.js'
 import Game from '../models/Game.js'
 import Stat from '../models/Stat.js'
-
-// console.log(playerData);
-// console.log(teamData);
   
 // Player
 let structuredPlayerData = playerData.map(
