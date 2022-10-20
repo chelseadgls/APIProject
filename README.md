@@ -3,4 +3,5 @@ API database of all current NBA players and teams. Demonstrates full CRUD functi
 
 ## Endpoints
 Player endpoint: N/A
+
 Team endpoint: N/A 
