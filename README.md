@@ -4,6 +4,8 @@ API database of all current NBA players and teams. Demonstrates full CRUD functi
 ## How to Use
 Fork and clone this repository. Install dependencies and run npm start, go to https://localhost:3000 in your browser and use the 'teams' and 'players' endpoints to retrieve data.
 
+Deployed app is available at https://apiproject-production.up.railway.app/.
+
 Player Endpoint
 http://localhost:3000/players
 
