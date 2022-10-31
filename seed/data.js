@@ -36,56 +36,6 @@ let structuredTeamData = teamData.map(
   }
 );
 
-// Game
-let structuredGameData = gameData.map(
-  ({ id, date, home_team_score, visitor_team_score, season, period, status, time, postseason, home_team, visitor_team }) => {
-    return {
-      id,
-      date,
-      home_team_score,
-      visitor_team_score,
-      season,
-      period,
-      status,
-      time,
-      postseason,
-      home_team,
-      visitor_team
-    };
-  }
-);
-
-// Stat
-let structuredStatData = statData.map(
-  ({ id, ast, blk, dreb, fg3_pct, fg3a, fg3m, fga, fgm, ft_pct, fta, ftm, game, min, oreb, pf, player, pts, reb, stl, team, turnover }) => {
-    return {
-      id,
-      ast,
-      blk,
-      dreb,
-      fg3_pct,
-      fg3a,
-      fg3m,
-      fg3_pct,
-      fga,
-      fgm,
-      ft_pct,
-      fta,
-      ftm,
-      game,
-      min,
-      oreb,
-      pf,
-      player,
-      pts,
-      reb,
-      stl,
-      team,
-      turnover
-    };
-  }
-);
-
 // insert data
 let insertData = async () => {
   await Player.deleteMany({});
@@ -96,4 +46,4 @@ let insertData = async () => {
   // mongoose.disconnect();
 };
 
-insertData();
+  insertData();

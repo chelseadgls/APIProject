@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import chalk from 'chalk';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 let mongooseConfig = {
   useNewUrlParser: true,
