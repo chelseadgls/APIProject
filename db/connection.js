@@ -8,8 +8,10 @@ let mongooseConfig = {
 
 mongoose.set("returnOriginal", false);
 
+const connectionString = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/nba-data"
+
   mongoose
-    .connect("mongodb://127.0.0.1:27017/nba-data", mongooseConfig)
+    .connect(connectionString, mongooseConfig)
     .catch((error) => {
       console.log(`Error connecting to MongoDB: ${error.message}`);
     });
