@@ -90,12 +90,8 @@ let structuredStatData = statData.map(
 let insertData = async () => {
   await Player.deleteMany({});
   await Team.deleteMany({});
-  await Game.deleteMany({});
-  await Stat.deleteMany({});
   await Player.create(structuredPlayerData);
   await Team.create(structuredTeamData);
-  await Game.create(structuredGameData);
-  await Stat.create(structuredStatData);
   console.log('Data inserted');
   // mongoose.disconnect();
 };
