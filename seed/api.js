@@ -2,7 +2,7 @@ import axios from 'axios';
 import fs from 'fs';
 
 //Player endpoint
-const playerURL = 'https://www.balldontlie.io/api/v1/players?per_page=100';
+const playerURL = 'https://www.balldontlie.io/api/v1/players?per_page=100&page=1';
 
 //Team endpoint
 const teamURL = 'https://www.balldontlie.io/api/v1/teams';
@@ -14,36 +14,29 @@ const gameURL = 'https://www.balldontlie.io/api/v1/games'
 const statURL = 'https://www.balldontlie.io/api/v1/stats'
 
 // Player
-async function fetchPlayer() {
-  let response = await axios.get(playerURL);
-  const data = response.data;
-  const playerData = JSON.stringify(data);
-  fs.writeFile('playerdata.json', playerData, err => {
-    if (err) {
-      throw err
-    }
-    console.log('Player data is saved');
-  });
-};
-
-//recursive function to call all player data
-const getAllPlayers = useCallback((page, players) => {
-  if (page) {
-    return fetch(`https://www.balldontlie.io/api/v1/players?per_page=100&page=${page}`)
-      .then((response) => response.json())
-      .catch(() => new Promise((r) => setTimeout(r, 25000)).then(() => getAllPlayers(page, players)))
-      .then((result) => {
-        return getAllPlayers(result.meta?.next_page, players.concat(result.data));
-      });
-  } else return players;
-}, []);
-
-fetchPlayer();
+let allPlayers = [];
+for (let i = 0; i < 40; i++) {
+  async function fetchPlayer() {
+    let response = await axios.get(`https://www.balldontlie.io/api/v1/players?per_page=100&page=${i}`);
+    allPlayers.push(response.data.data);
+    console.log(allPlayers);
+    // convert data to JSON
+    // const data = response.data;
+    const playerData = JSON.stringify(allPlayers);
+    fs.writeFile('playerdata.json', playerData, err => {
+      if (err) {
+        throw err
+      }
+      console.log('Player data is saved');
+    });
+  };
+  // fetchPlayer();
+}
 
 // Team
 async function fetchTeam() {
   let response = await axios.get(teamURL);
-  // console.log(response.data)
+  console.log(response.data)
   const data = response.data;
   const teamData = JSON.stringify(data);
   fs.writeFile('teamdata.json', teamData, err => {

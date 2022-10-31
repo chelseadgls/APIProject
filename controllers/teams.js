@@ -15,11 +15,11 @@ export const getTeam = async (req, res) => {
     const { id } = req.params;
     const team = await Team.findById(id);
 
-    if (tea) {
+    if (team) {
       return res.json(team);
     }
 
-    res.status(404).json({ message: 'House not found' });
+    res.status(404).json({ message: 'Team not found' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
